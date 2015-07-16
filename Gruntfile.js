@@ -19,6 +19,7 @@ module.exports = function (grunt) {
   // Configurable paths
   var config = {
     client: 'public/js',
+    lib: 'public/lib',
     css: 'public/css',
     specs: 'specs',
     dist: 'public/dist'
@@ -29,6 +30,24 @@ module.exports = function (grunt) {
 
     // Project settings
     config: config,
+
+    clean: {
+      lib: ['<%= config.lib %>/*.js']
+    },
+
+    concat: {
+      options: {
+        seperator: ';'
+      },
+      lib: {
+        src: [
+          'bower_components/angular/angular.min.js',
+          'bower_components/angular-mocks/angular-mocks.js',
+          'bower_components/angular-route/angular-route.min.js'
+        ],
+        dest: '<%= config.lib %>/lib.js'
+      }
+    },
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {
@@ -47,7 +66,9 @@ module.exports = function (grunt) {
         force: 'true',
         jshintrc: '.jshintrc',
         ignores: [
-          'node_modules/**/*.js'
+          'node_modules/**/*.js',
+          'bower_components/**/*.js',
+          '<%= config.lib %>/**/*.js'
         ]
       },
       client: {
@@ -91,6 +112,8 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'jshint',
     'test',
+    'clean',
+    'concat'
   ]);
 
   grunt.registerTask('default', 'local');
