@@ -55,7 +55,7 @@ module.exports = app;
 if (!module.parent) {
   var http = require('http');
   var port = process.env.PORT || 3000;
-  app.set('port');
+  app.set('port', port);
 
   var server = http.createServer(app);
   server.listen(port);
