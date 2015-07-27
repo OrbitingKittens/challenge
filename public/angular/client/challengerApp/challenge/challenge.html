@@ -1,0 +1,66 @@
+<div class="challenge-creator-container" ng-show="user.id===creator.id">
+ <button type="button" class="btn btn-default" ng-hide="started||!canBeStarted" ng-click="challengeStart()">Start challenge</button>
+ <button type="button" class="btn btn-danger" ng-hide="!started||complete" ng-click="challengeComplete()">Complete challenge with no winner</button>
+</div>
+
+<div class="challenge-participant-container" ng-show="isParticipant&&!hasAccepted&&user.id!==creator.id&&!started">
+ <button type="button" class="btn btn-success" ng-click="challengeAccept()">Accept challenge</button>
+ <!-- <button type="button" class="btn btn-danger" ng-click="challengeComplete()">Deny challenge</button> -->
+</div>
+
+<div class="challenge-info-container">
+  <div class="challenge-details">
+    <div class="challenge-creator pull-right hidden-xs">
+      <h4 class="text-center">Creator info</h4>
+      <img class="pull-left" ng-src="{{creator.profile_image}}">
+      <span class="challenge-creator-name">
+        {{creator.first_name}} {{creator.last_name}}
+      </span>
+      <br>
+      <span class="challenge-creator-info">
+        HOT STATS
+      </span>
+    </div>
+    <h1 class="challenge-title"><span class="glyphicon glyphicon-off" ng-class="{'text-danger':!started,'text-success':started}"></span>{{ challengeData.title }}</h1>
+    <p class="lead challengeDescription">Description: {{ challengeData.message }}</p>
+    <p class="text-danger" ng-show="complete&&winner===null">NOBODY WINS</p>
+    <p class="text-success" ng-show="complete&&winner!==null">
+      {{winner.first_name|uppercase}} {{winner.last_name|uppercase}} IS THE WINNER
+    </p>
+  </div>
+  <div class="challenge-participants">
+    <div class="challenge-participants-item participants" ng-repeat="participant in challengeData.participants" ng-class="{fade:!participant.accepted,'text-success':participant.id===winner.id}">
+      <img ng-src="{{participant.profile_image}}" title="{{participant.first_name}} {{participant.last_name}}">
+      <span>{{participant.first_name}} {{participant.last_name}}</span>
+      <span class="glyphicon glyphicon-sunglasses text-muted" title="Declare them the winner"
+      ng-hide="user.id!==creator.id||!started||complete||!participant.accepted" ng-click="challengeComplete(participant.id)">
+      </span>
+    </div>
+  </div>
+  <div class="challenge-comment-container col-lg-12">
+    <h3>Comments</h3>
+    <div class="challenge-comment-list">
+      <div class="challenge-comment-item" ng-repeat="comment in comments">
+        <div class="challenge-comment-profile col-lg-3 col-xs-1 col-sm-3">
+          <img ng-src="{{comment.user.profile_image}}">
+          <span class="hidden-xs">{{comment.user.first_name}} {{comment.user.last_name}}</span>
+        </div>
+        <div class="challenge-comment-text-container pull-right col-lg-9 col-xs-11 col-sm-9">
+          <small class="challenge-comment-date text-muted">{{comment.date_created|date:'MMM dd, yyyy hh:mm a:'}} </small>
+          <span class="challenge-comment-text">{{comment.text}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="challenge-comment-post" ng-hide="user===null">
+      <form name="commentForm">
+        <div class="form-group">
+          <label for="challenge-comment-text">Make a comment:</label>
+          <textarea name="challenge-comment-text" id="challenge-comment-text" class="form-control challenge-comment-text" placeholder="Tell them what's what..."
+           ng-model="newComment" ng-required="true" ng-minlength="3"></textarea>
+        </div>
+        <button type="button" class="btn btn-success" ng-click="postChallengeComment()" ng-disabled="commentForm.$invalid">Post comment</button>
+      </form>
+    </div>
+  </div>
+</div>
+

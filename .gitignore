@@ -2,3 +2,13 @@
 /bower_components
 challenge.sublime-workspace
 public/lib/*.js
+
+*.sqlite
+
+/facebook_config.js
+
+npm-debug.log
+
+sessions/
+
+*.DS_Store

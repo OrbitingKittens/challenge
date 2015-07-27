@@ -5,7 +5,14 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+
 var routes = require('./routes/index');
+var api = require('./routes/api');
+var auth = require('./routes/auth');
+
+var session = require('express-session');
+var FileStore = require('session-file-store')(session);
+var passport = require('./middleware/passport');
 
 var app = express();
 
@@ -15,9 +22,19 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session({
+  'store': new FileStore(),
+  'secret': 'all along the watchtower',
+  'resave': false,
+  'saveUninitialized': false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
+app.use('/auth', auth.router);
+app.use('/api/1', api.router);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

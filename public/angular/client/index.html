@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <!-- CSS (load bootstrap) -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <!-- JS (load angular, ui-router, and our custom js file) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+  <script src="angular/client/challengerApp/app.js"></script>
+</head>
+
+<!-- apply our angular app to our site -->
+<body ng-app="challengeApp" ng-controller='ChallengeAppController'>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar navbar-inverse" role="navigation">
+    <div class="navbar-header">
+      <a class="navbar-brand" ui-sref="challenge_public">DUEL</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a ui-sref="challenge_list">Challenge</a></li>
+      <li><a ui-sref="challenge_create">Create</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right" ng-show="user">
+      <li><a class="navbar-profile" ui-sref="user"><img ng-src="{{user.profile_image}}" style="height:50px;"></a></li>
+      <li><a ui-sref="signout">Logout</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right" ng-hide="user">
+        <li><a ui-sref="signin">Login</a></li>
+      </ul>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+
+      <!-- THIS IS WHERE WE WILL INJECT OUR CONTENT ============================== -->
+      <div ui-view></div>
+
+    </div>
+    <script src="angular/client/challengerApp/challenge/challenge.js"></script>
+    <script src="angular/client/challengerApp/create/create.js"></script>
+    <script src="angular/client/challengerApp/services/services.js"></script>
+    <script src="angular/client/challengerApp/user/user.js"></script>
+
+
+  </body>
+  </html>

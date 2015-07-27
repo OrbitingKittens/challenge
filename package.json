@@ -3,8 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
+  "engines": {
+    "node": "0.12.x",
+    "npm": "2.x"
+  },
   "scripts": {
-    "test": "karma start --browsers PhantomJS"
+    "start": "node app",
+    "test": "grunt test"
   },
   "repository": {
     "type": "git",
@@ -17,11 +22,20 @@
     "cookie-parser": "~1.3",
     "debug": "~2.2",
     "express": "~4.13",
+    "express-session": "~1.11",
     "morgan": "~1.6",
-    "serve-favicon": "~2.3"
+    "passport": "~0.2",
+    "passport-facebook": "~2.0",
+    "pg": "^4.4.0",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "~3.4",
+    "serve-favicon": "~2.3",
+    "session-file-store": "0.0.14",
+    "sqlite3": "^3.0.9"
   },
   "devDependencies": {
     "browser-sync": "^1.5.7",
+    "chai": "^3.1.0",
     "expect.js": "^0.3.1",
     "grunt": "^0.4.5",
     "grunt-contrib-clean": "^0.6.0",
@@ -35,12 +49,15 @@
     "karma-chrome-launcher": "^0.1.4",
     "karma-cli": "0.0.4",
     "karma-jasmine": "^0.1.5",
-    "karma-mocha": "^0.1.4",
+    "karma-mocha": "^0.2.0",
     "karma-nested-reporter": "^0.1.1",
     "karma-nyan-reporter": "0.0.43",
     "karma-phantomjs-launcher": "^0.1.4",
+    "karma-sinon": "^1.0.4",
     "karma-unicorn-reporter": "^0.1.4",
     "mocha": "^1.20.1",
+    "request": "^2.58.0",
+    "sinon": "^1.15.4",
     "time-grunt": "^1.2.1"
   },
   "bugs": {

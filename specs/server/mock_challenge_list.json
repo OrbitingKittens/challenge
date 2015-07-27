@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "title": "Drink a gallon of milk",
+    "message": "Retro locavore direct trade, normcore migas fanny pack synth mustache typewriter photo booth try-hard pour-over chillwave. Four dollar toast taxidermy jean shorts, narwhal wolf selfies kogi bespoke ugh umami pork belly meditation aesthetic Bushwick normcore.",
+    "wager": "Winner gets free milk.",
+    "url": "/challenge/1",
+    "creator": 1,
+    "started": true,
+    "complete": true,
+    "winner": 2,
+    "date_created": "2015-07-22T23:25:22.000Z",
+    "date_started": "2015-07-22T23:28:56.000Z",
+    "date_completed": "2015-07-22T23:37:48.000Z",
+    "participants": [
+      {
+        "id": 1,
+        "first_name": "Randy",
+        "last_name": "Savage",
+        "profile_image" : "http://img.bleacherreport.net/img/images/photos/001/866/715/randy_savage_crop_north.png?w=377&h=251&q=75",
+        "accepted": true
+      },
+      {
+        "id": 2,
+        "first_name": "Paul",
+        "last_name": "Newman",
+        "profile_image" : "http://i.dailymail.co.uk/i/pix/2008/09/28/article-1063705-02D517F700000578-321_468x524.jpg",
+        "accepted": true
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Watch the entirety of Master and Commander",
+    "message": "Shoreditch tote bag direct trade, PBR&B American Apparel Vice Thundercats Austin skateboard tattooed semiotics.",
+    "wager": "Loser has to watch Waterworld.",
+    "url": "/challenge/2",
+    "creator": 2,
+    "started": true,
+    "complete": false,
+    "winner": null,
+    "date_created": "2015-08-05T02:03:22.000Z",
+    "date_started": "2015-08-05T03:05:13.000Z",
+    "date_completed": null,
+    "participants": [
+      {
+        "id": 1,
+        "first_name": "Randy",
+        "last_name": "Savage",
+        "profile_image" : "http://img.bleacherreport.net/img/images/photos/001/866/715/randy_savage_crop_north.png?w=377&h=251&q=75",
+        "accepted": true
+      },
+      {
+        "id": 2,
+        "first_name": "Paul",
+        "last_name": "Newman",
+        "profile_image" : "http://i.dailymail.co.uk/i/pix/2008/09/28/article-1063705-02D517F700000578-321_468x524.jpg",
+        "accepted": true
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Race to understand the quantum uncertainty principle",
+    "message": "Flexitarian butcher shabby chic slow-carb, bicycle rights skateboard leggings Williamsburg vegan Echo Park chambray stumptown letterpress farm-to-table. Stumptown cold-pressed skateboard, pop-up selfies Banksy Etsy mlkshk migas narwhal.",
+    "wager": "Winner gets the Nobel Prize.",
+    "url": "/challenge/3",
+    "creator": 2,
+    "started": false,
+    "complete": false,
+    "winner": null,
+    "date_created": "2015-08-05T02:03:22.000Z",
+    "date_started": null,
+    "date_completed": null,
+    "participants": [
+      {
+        "id": 1,
+        "first_name": "Randy",
+        "last_name": "Savage",
+        "profile_image" : "http://img.bleacherreport.net/img/images/photos/001/866/715/randy_savage_crop_north.png?w=377&h=251&q=75",
+        "accepted": false
+      },
+      {
+        "id": 2,
+        "first_name": "Paul",
+        "last_name": "Newman",
+        "profile_image" : "http://i.dailymail.co.uk/i/pix/2008/09/28/article-1063705-02D517F700000578-321_468x524.jpg",
+        "accepted": true
+      }
+    ]
+  }
+]
