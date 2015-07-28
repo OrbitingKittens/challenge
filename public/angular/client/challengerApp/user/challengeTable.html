@@ -1,11 +1,11 @@
-<table class='table table-bordered challenge-table'>
-  <caption ng-show="caption">{{caption}}</caption>
-  <tr ng-repeat='challenge in challenges|challengeFilter:accepted:started:complete:user' class='challenge-row'>
+<div class='table table-bordered challenge-table'>
+  <h3 ng-show="caption">{{caption}}</h3>
+  <div ng-repeat='challenge in challenges|challengeFilter:accepted:started:complete:user' class='challenge-row card'>
     <div class="challenge-list-details"><a ui-sref='challenge_view({id:challenge.id})'><span class='challengeTitle'>{{challenge.title}} </span><br>{{challenge.message}}</a></div>
     <div class='challenge-participant-list'>
       <a ng-repeat='participant in challenge.participants' ui-sref='user({userId:participant.id})'>
         <img ng-src='{{participant.profile_image}}' title='{{participant.first_name}} {{participant.last_name}}' ng-class='{fade:!participant.accepted}'>
       </a>
     </div>
-  </tr>
-</table>
+  </div>
+</div>

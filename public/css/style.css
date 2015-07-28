@@ -53,6 +53,7 @@
 
 .challenge-participant-list {
  width: 25%;
+  float: right;
 }
 .challenge-participant-list a {
  text-decoration: none;
@@ -69,8 +70,15 @@
 
 }
 
-challenge-table table{
+challenge-table .table{
   margin-top: 30px;
+  border: 0;
+}
+
+challenge-table .challenge-row{
+  margin-bottom: 25px;
+  /*border: 1px solid #ddd;*/
+  padding: 10px 20px;
 }
 
 .challenge-details .challenge-creator {
